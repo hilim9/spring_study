@@ -1,11 +1,13 @@
-package exam02.models.member;
+package exam03.models.member;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-@Repository // 자동 스캔 범위내에 있다고 알려주는 애노테이션 중 하나
 public class MemberDao {
     private static Map<String, Member> members = new HashMap<>();
 

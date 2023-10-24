@@ -1,4 +1,4 @@
-package exam02.models.member;
+package exam03.models.member;
 
 import exam02.commons.BadRequestException;
 import exam02.commons.LengthValidator;
@@ -7,7 +7,6 @@ import exam02.commons.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component // 자동 스캔 범위내에 있다고 알려주는 애노테이션 중 하나
 public class JoinValidator implements Validator<Member>, RequiredValidator, LengthValidator {
 
     @Autowired
