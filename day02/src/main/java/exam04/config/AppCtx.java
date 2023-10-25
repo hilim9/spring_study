@@ -11,7 +11,8 @@ import org.springframework.context.annotation.FilterType;
 // 설정한 하위 범위 패키지 전부 스캔
 /*@ComponentScan(basePackages = "exam04.models",
 excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = ManualBean.class))*/
-@ComponentScan(basePackages = "exam04.models", excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = MemberDao.class))
+/*@ComponentScan(basePackages = "exam04.models", excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = MemberDao.class))*/
+@ComponentScan(basePackages = "exam04.models", excludeFilters = @ComponentScan.Filter(type=FilterType.ASPECTJ, pattern="exam04.models..*Dao"))
 public class AppCtx {
 
     /*@Bean

@@ -5,31 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="100f515b-001a-468e-a31e-af587d627df5" name="Changes" comment="day02">
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/commons/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/commons/LengthValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/commons/RequiredValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/commons/Validator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/config/AppCtx.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/config/ManualBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/main/Ex01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/DuplicateMemberException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/InfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/JoinService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/JoinValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/LoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/LoginValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/MemberDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/MemberNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exam04/models/member/sub/MemberDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam05/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam05/config/AppCtx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam05/main/Ex01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam05/main/Ex02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exam05/main/Message2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam03/config/AppCtx1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam03/config/AppCtx1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam03/config/AppCtx2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam03/config/AppCtx2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam03/main/Ex01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam03/main/Ex01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam03/models/member/InfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam03/models/member/InfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam03/models/member/JoinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam03/models/member/JoinService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam03/models/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam03/models/member/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exam04/config/AppCtx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam04/config/AppCtx.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +22,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,7 +54,7 @@
       <recent name="D:\SW_LHI1400\6. 서버프로그램 구현\spring_study\day02\src\main\java\exam03" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.exam04.main.Ex01">
+  <component name="RunManager" selected="Application.Ex02">
     <configuration name="Ex01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="exam02.main.Ex01" />
       <module name="day02" />
@@ -86,12 +68,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ex01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="exam01.main.ex01" />
+    <configuration name="Ex02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exam05.main.Ex02" />
       <module name="day02" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="exam01.main.*" />
+          <option name="PATTERN" value="exam05.main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,12 +107,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="exam05.main.Ex01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="exam05.main.Ex01" />
+      <module name="day02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="exam05.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Ex02" />
+        <item itemvalue="Application.exam05.main.Ex01" />
         <item itemvalue="Application.exam04.main.Ex01" />
         <item itemvalue="Application.exam03.main.Ex01" />
         <item itemvalue="Application.Ex01" />
-        <item itemvalue="Application.ex01" />
       </list>
     </recent_temporary>
   </component>
@@ -159,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698137876424</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="day02">
+      <option name="closed" value="true" />
+      <created>1698220452518</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698220452518</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
