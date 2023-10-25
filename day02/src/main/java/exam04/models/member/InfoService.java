@@ -1,34 +1,31 @@
-package exam03.models.member;
+package exam04.models.member;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
+@Service
+@RequiredArgsConstructor
 public class InfoService {
 
-    //@Autowired
+    @NonNull // null값이 아니기 때문에 생성자 매개변수로 추가됨
     private MemberDao memberDao;
-    @Autowired
-    private Optional<MemberDao> opt;
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
 
-    //@Autowired(required = false)
-    @Autowired/*(required = false)*/ // set형태 메서드도 @Autowired 사용 가능
+
+    @Autowired
     public void setFormatter(@Nullable DateTimeFormatter formatter) {
-
-        System.out.println("유입");
-        System.out.println(formatter); // null
-
         this.formatter = formatter;
     }
 
     public void print() {
 
-        MemberDao memberDao = opt.get();
         List<Member> members = memberDao.gets();
         members.stream().map(this::toConvert).forEach(System.out::println);
     }

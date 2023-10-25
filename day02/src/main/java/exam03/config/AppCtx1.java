@@ -1,6 +1,7 @@
 package exam03.config;
 
 import exam03.models.member.MemberDao;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -13,12 +14,14 @@ public class AppCtx1 {
     // 동일한 객체가 두 개 설정되어 있을 때 어느 객체인지 모르기 때문
 
     @Bean
+    /*@Qualifier("mDao")*/ // 객체 이름 변경 가능
     public MemberDao memberDao() {
         return new MemberDao();
     }
     
-    @Bean
+    /*@Bean
     public MemberDao memberDao2() {
         return new MemberDao();
-    }
+    }*/
+
 }

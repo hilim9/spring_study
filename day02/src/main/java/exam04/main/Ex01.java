@@ -1,9 +1,7 @@
-package exam03.main;
+package exam04.main;
 
-import exam03.config.AppCtx1;
-import exam03.models.member.InfoService;
-import exam03.models.member.JoinService;
-import exam03.models.member.Member;
+import exam04.config.AppCtx;
+import exam04.models.member.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.time.LocalDateTime;
@@ -11,7 +9,7 @@ import java.time.LocalDateTime;
 public class Ex01 {
     public static void main(String[] args) {
 
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx1.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
         JoinService joinService = ctx.getBean(JoinService.class);
         InfoService infoService = ctx.getBean(InfoService.class);
