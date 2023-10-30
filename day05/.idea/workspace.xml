@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a288f84b-980e-4819-86e1-f17f02819572" name="Changes" comment="day05">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/Ex01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sqls/member.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/ControllerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/MvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/hello.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/AppCtx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AppCtx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exam01/Ex04.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exam01/Ex04.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/member/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/member/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/member/MemberDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/member/ServiceManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/AppCtx.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +28,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -55,7 +61,7 @@
       <recent name="D:\SW_LHI1400\6. 서버프로그램 구현\spring_study\day05\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main.Ex01">
+  <component name="RunManager" selected="Smart Tomcat.tomcat10">
     <configuration name="Ex01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="exam01.Ex01" />
       <module name="day05" />
@@ -121,6 +127,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="tomcat10" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="catalinaBase" value="C:\Users\ITSC\.SmartTomcat\day05\day05" />
+      <option name="contextPath" value="/day05" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="extraClassPath" value="" />
+      <option name="port" value="3000" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/10.1.14" />
+          <option name="path" value="$PROJECT_DIR$/../../../apache-tomcat-10.1.14" />
+          <option name="version" value="10.1.14.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <module name="day05" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Ex01" />
+      <item itemvalue="Application.Ex02" />
+      <item itemvalue="Application.Ex03" />
+      <item itemvalue="Application.Ex04" />
+      <item itemvalue="Application.main.Ex01" />
+      <item itemvalue="Smart Tomcat.tomcat10" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.main.Ex01" />
@@ -148,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698396708840</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="day05">
+      <option name="closed" value="true" />
+      <created>1698651767949</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698651767949</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
