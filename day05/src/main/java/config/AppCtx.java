@@ -2,10 +2,12 @@ package config;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration
+@ComponentScan("models")
 public class AppCtx {
 
     @Bean(destroyMethod = "close") // 소멸시 호출 메서드 정의 (외부 라이브러리, 외부 클래스)
