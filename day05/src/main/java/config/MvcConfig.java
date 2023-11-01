@@ -1,5 +1,6 @@
 package config;
 
+import commons.Utils;
 import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -19,6 +20,15 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Autowired
     private ApplicationContext ctx;
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        // 컨트롤러 없이 연동할 때 사용
+
+        registry.addViewController("/")
+                .setViewName("main/index");
+
+    }
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -82,6 +92,13 @@ public class MvcConfig implements WebMvcConfigurer {
         return ms;
 
     }
+
+    @Bean
+    public Utils utils() {
+
+        return new Utils();
+    }
+
 
 
 }
