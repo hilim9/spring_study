@@ -1,26 +1,52 @@
 package controllers.member;
 
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/member")
+@RequiredArgsConstructor
 public class MemberController {
 
+    private final JoinValidator joinValidator;
+
     @GetMapping("/join")
-    public String join() {
+    public String join(@ModelAttribute RequestJoin join) {
+        
+        // 비어있는 커맨드 객체를 만들어야 오류가 발생하지 않는다 (GET방식일 때)
+        /*RequestJoin requestJoin = new RequestJoin();
+        model.addAttribute("requestJoin", requestJoin);*/
 
         return "member/join";
     }
 
     @PostMapping("/join")
     /*@RequestMapping(method = RequestMethod.POST, path="/join")*/
-    public String joinPs() {
+    public String joinPs(@Valid  RequestJoin join, Errors errors) {
+                        //요청 메서드의 매개변수로 정의하면 알아서 주입. 클래스명에서 앞자가 소문자로 변경된 형태로 사용
+                        // 커맨드 객체 뒤에 Errors errors 객체를 입력해야 정상 작동 한다
 
-        System.out.println("Post");
-        return "redirect:/member/login"; // 페이지 이동
+        //model.addAttribute("requestJoin", join);
+
+        //System.out.println(join);
+        //return "redirect:/member/login"; // 페이지 이동
+
+        joinValidator.validate(join, errors);
+
+        if (errors.hasErrors()) {
+
+            // 검증 실패시 유입
+            return "member/join";
+        }
+
+        // 검증 성공 -> 회원가입 처리
+        return "redirect:/member/login";
     }
 
     @GetMapping("/login")
