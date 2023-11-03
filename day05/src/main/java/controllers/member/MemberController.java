@@ -60,7 +60,7 @@ public class MemberController {
     public String login(@ModelAttribute RequestLogin form, @CookieValue(name="saveId", required = false) String userId) {
 
         if (userId != null) {
-            form.userId(userId);
+            //form.userId(userId);
         }
 
         System.out.println(userId);
