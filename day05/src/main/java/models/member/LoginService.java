@@ -1,27 +1,41 @@
 package models.member;
 
-import commons.Validator;
-import jakarta.servlet.http.HttpServletRequest;
+import controllers.member.RequestLogin;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
+@Service
+@RequiredArgsConstructor
 public class LoginService {
 
-    private Validator<HttpServletRequest> validator;
-    private MemberDao memberDao;
+    private final MemberDao memberDao;
+    private final HttpSession session;
+    private final HttpServletResponse response;
 
-    public LoginService(Validator<HttpServletRequest> validator, MemberDao memberDao) {
-        this.validator = validator;
-        this.memberDao = memberDao;
-    }
+    public void login(RequestLogin form) {
 
-    public void login(HttpServletRequest request) {
-
-        validator.check(request);
-
-        // 로그인 처리
-        String userId = request.getParameter("userId");
+        String userId = form.userId();
         Member member = memberDao.get(userId);
-        HttpSession session = request.getSession();
-        session.setAttribute("member", member);
+
+        session.setAttribute("member",member);
+
+        Cookie cookie = new Cookie("saveId", userId);
+        boolean saveId = Objects.requireNonNullElse(form.saveId(), false); // ID null 값 처리
+        if (saveId) { // 쿠키 저장
+
+            cookie.setMaxAge(60 * 60 * 24 * 365); // 쿠키 1년 저장
+
+        } else { // 쿠키 삭제
+
+            cookie.setMaxAge(0); // 과거시간 -> 삭제
+        }
+
+        response.addCookie(cookie);
     }
+
 }

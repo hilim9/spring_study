@@ -2,43 +2,21 @@ package models.member;
 
 import lombok.RequiredArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
 public class MemberDao {
 
     private final JdbcTemplate jdbcTemplate;
-
-    /* public boolean register(Member member) {
-
-        String userPw = BCrypt.hashpw(member.getUserPw(), BCrypt.gensalt(12));
-        member.setUserPw(userPw);
-
-        String sql = "INSERT INTO MEMBER (USER_NO, USER_ID, USER_PW, EMAIL, USER_NM, MOBILE)" +
-                " VALUES(SEQ_MEMBER.nextval, ?, ?, ?, ?, ?)";
-        int affectedRows = jdbcTemplate.update(sql, member.getUserId(),
-                                                    userPw, member.getEmail(),
-                                                    member.getUserNm(), member.getMobile());
-
-        return affectedRows > 0;
-
-    } */
 
     public boolean register(Member member) {
 

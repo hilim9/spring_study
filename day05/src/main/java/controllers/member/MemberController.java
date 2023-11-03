@@ -1,13 +1,13 @@
 package controllers.member;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import models.member.JoinService;
+import models.member.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/member")
@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
     private final JoinValidator joinValidator;
+    private final JoinService joinService;
+    private final LoginValidator loginValidator;
+    private final LoginService loginService;
 
     @GetMapping("/join")
     public String join(@ModelAttribute RequestJoin join) {
@@ -29,7 +32,7 @@ public class MemberController {
     @PostMapping("/join")
     /*@RequestMapping(method = RequestMethod.POST, path="/join")*/
     public String joinPs(@Valid  RequestJoin join, Errors errors) {
-                        //요청 메서드의 매개변수로 정의하면 알아서 주입. 클래스명에서 앞자가 소문자로 변경된 형태로 사용
+                        // 요청 메서드의 매개변수로 정의하면 알아서 주입. 클래스명에서 앞자가 소문자로 변경된 형태로 사용
                         // 커맨드 객체 뒤에 Errors errors 객체를 입력해야 정상 작동 한다
 
         //model.addAttribute("requestJoin", join);
@@ -37,7 +40,9 @@ public class MemberController {
         //System.out.println(join);
         //return "redirect:/member/login"; // 페이지 이동
 
-        joinValidator.validate(join, errors);
+       // System.out.println("데이터 확인: " + join);
+
+        //joinValidator.validate(join, errors);
 
         if (errors.hasErrors()) {
 
@@ -46,21 +51,55 @@ public class MemberController {
         }
 
         // 검증 성공 -> 회원가입 처리
+        joinService.join(join);
+
         return "redirect:/member/login";
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(@ModelAttribute RequestLogin form, @CookieValue(name="saveId", required = false) String userId) {
+
+        if (userId != null) {
+            form.userId(userId);
+        }
+
+        System.out.println(userId);
         
         return "member/login";
     }
     
     @PostMapping("/login")
-    public String loginPs() {
-        
-        return "member/login";
+    public String loginPs(@Valid RequestLogin form, Errors errors, HttpSession session) {
+
+        loginValidator.validate(form, errors);
+
+        if (errors.hasErrors()) {
+            return "member/login";
+        }
+
+        // 유효성 검사 성공 -> 로그인 처리
+        loginService.login(form);
+
+        return "redirect:/";
+
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+
+        session.invalidate();
+
+        return "redirect:/member/login";
+
+    }
+
+    /*
+    @InitBinder // 컨트롤 범위내에서 공통적인 Validator 설정
+    public void initBinder(WebDataBinder binder) {
+        binder.setValidator(joinValidator);
+
+    }
+    */
 
 
     /*@GetMapping("/member/join")

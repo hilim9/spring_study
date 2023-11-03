@@ -28,9 +28,13 @@ public class RequestJoin {
     @Email
     private String email;
 
-
     private String mobile;
 
     @AssertTrue
     private boolean agree;
+
+    private Address addr; // addr.address, addr.zipcode 변수명으로 접근
+
+    //private String[] hobby;
+    //private List<String> hobby;
 }

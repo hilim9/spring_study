@@ -1,8 +1,15 @@
 package controllers.member;
 
-public record RequestLogin(
 
+import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
+
+@Builder
+public record RequestLogin(
+    @NotBlank
     String userId,
+    @NotBlank
     String userPw,
-    boolean saveId
+    Boolean saveId
+
 ) {}
