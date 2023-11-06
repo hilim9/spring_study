@@ -5,26 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a288f84b-980e-4819-86e1-f17f02819572" name="Changes" comment="day05">
-      <change afterPath="$PROJECT_DIR$/src/main/java/config/DbConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/member/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/member/LoginValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/CommonInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/config/MemberOnlyInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/CommonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/admin/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/admin/MemberSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/file/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/member/info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/admin/member/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/error/common.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/file/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/member/mypage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/ControllerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/ControllerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/config/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/MvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/member/JoinValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/member/JoinValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/member/LoginValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/member/LoginValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/member/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/member/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/member/RequestJoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/member/RequestJoin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/member/RequestLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/member/RequestLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/member/JoinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/member/JoinService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/member/JoinValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/member/JoinValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/member/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/member/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/member/LoginValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/member/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/member/MemberDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/member/MemberDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/messages/commons.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages/commons.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/member/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/member/join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/member/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/member/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +251,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698915345873</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="day05">
+      <option name="closed" value="true" />
+      <created>1699001373590</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699001373590</updated>
+    </task>
+    <task id="LOCAL-00009" summary="day05">
+      <option name="closed" value="true" />
+      <created>1699001393576</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699001393576</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -32,11 +32,34 @@ public class MvcConfig implements WebMvcConfigurer {
     }*/
 
     @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(memberOnlyInterceptor())
+                .addPathPatterns("/mypage/**");
+
+        registry.addInterceptor(commonInterceptor())
+                .addPathPatterns(("/**"));
+    }
+
+    @Bean
+    public CommonInterceptor commonInterceptor() {
+        return new CommonInterceptor();
+    }
+
+    @Bean
+    public MemberOnlyInterceptor memberOnlyInterceptor() {
+        return new MemberOnlyInterceptor();
+    }
+
+    @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         // 컨트롤러 없이 연동할 때 사용
 
         registry.addViewController("/")
                 .setViewName("main/index");
+                                                    // 마이페이지가 있는 모든 하위 경로
+        registry.addViewController("/mypage/**")
+                .setViewName("member/mypage");
+
 
     }
 

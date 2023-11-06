@@ -44,11 +44,11 @@ public class MemberController {
 
         //joinValidator.validate(join, errors);
 
-        if (errors.hasErrors()) {
+        /*if (errors.hasErrors()) {
 
             // 검증 실패시 유입
             return "member/join";
-        }
+        }*/
 
         // 검증 성공 -> 회원가입 처리
         joinService.join(join);
@@ -60,10 +60,11 @@ public class MemberController {
     public String login(@ModelAttribute RequestLogin form, @CookieValue(name="saveId", required = false) String userId) {
 
         if (userId != null) {
-            //form.userId(userId);
+            form.setUserId(userId);
+            form.setSaveId(true);
         }
 
-        System.out.println(userId);
+        //System.out.println(userId);
         
         return "member/login";
     }
@@ -92,6 +93,16 @@ public class MemberController {
         return "redirect:/member/login";
 
     }
+
+    // Membercontroller 한정 예외 페이지 처리
+    /*@ExceptionHandler(Exception.class)
+    public String errorHandler(Exception e, Model model) {
+        e.printStackTrace(); // 오류 출력
+
+        model.addAttribute("message", e.getMessage());
+
+        return "error/common";
+    }*/
 
     /*
     @InitBinder // 컨트롤 범위내에서 공통적인 Validator 설정
