@@ -3,7 +3,7 @@
     <body>
         <form method="post" th:action="@{/file/upload}" enctype="multipart/form-data">
             <input type="text" name="subject"><br>
-            <input type="file" name="file"><br>
+            <input type="file" name="file2" multiple><br><!-- multiple: 파일을 여러개 선택 -->
             <button type="submit">전송하기</button>
         </form>
     </body>

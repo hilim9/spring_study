@@ -1,9 +1,11 @@
 package controllers.file;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -13,6 +15,9 @@ import java.io.IOException;
 @RequestMapping("/file/upload")
 public class FileController {
 
+    @Value("${file.upload.path}")
+    private String fileUploadPath;
+
     @GetMapping
     public String upload() {
 
@@ -20,13 +25,15 @@ public class FileController {
     }
 
     @PostMapping
-    public String uploadPs(MultipartFile file) {
+    public String uploadPs(@RequestParam("file2") MultipartFile[] files) {
 
-        File path = new File("C:/uploads/" + file.getOriginalFilename());
-        try {
-            file.transferTo(path);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        for (MultipartFile file : files) {
+            File path = new File(fileUploadPath + file.getOriginalFilename());
+            try {
+                file.transferTo(path);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         return "file/upload";
     }

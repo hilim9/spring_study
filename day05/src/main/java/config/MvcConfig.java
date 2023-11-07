@@ -3,12 +3,15 @@ package config;
 import commons.Utils;
 import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.config.annotation.*;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.spring6.SpringTemplateEngine;
@@ -19,6 +22,12 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 @EnableWebMvc
 @Import(DbConfig.class)
 public class MvcConfig implements WebMvcConfigurer {
+
+    @Value("${environment}")
+    private String env;
+
+    @Value("${file.upload.path}")
+    private String fileUploadPath;
 
     @Autowired
     private ApplicationContext ctx;
@@ -72,22 +81,32 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // 정적 경로 설정
+
+
                                         // *: 하위 경로
                                         // **: 하위 경로를 포함한 모든 경로
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/static/");
+
+        registry.addResourceHandler("/uploads/**")
+                .addResourceLocations("file:///" + fileUploadPath);
+                                        // -> //두개를 입력했을 때 특수문자로 인식해서 한개가 제거 되기 때문에
+                                            ///3개를 입력해야한다
 
 
     }
 
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
+
+        boolean cacheable = env.equals("prod") ? true : false;
+
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(ctx);
         templateResolver.setPrefix("/WEB-INF/templates/");
         templateResolver.setSuffix(".html");
-        templateResolver.setCacheable(false); // 캐시 설정
-                                              // false:요청시마다 templates 불러옴
+        templateResolver.setCacheable(cacheable); // 캐시 설정
+                                                  // false:요청시마다 templates 불러옴
         return templateResolver;
     }
 
@@ -130,6 +149,16 @@ public class MvcConfig implements WebMvcConfigurer {
     public Utils utils() {
 
         return new Utils();
+    }
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer properties() {
+                    // 프로퍼티 파일 설정
+
+        PropertySourcesPlaceholderConfigurer conf = new PropertySourcesPlaceholderConfigurer();
+        conf.setLocations(new ClassPathResource("application.properties"));
+
+        return conf;
     }
 
 
